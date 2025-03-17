@@ -1,8 +1,10 @@
+import Hero from "../../../components/commonComponents/Hero/Hero";
+
 const HomePage = () => {
     return(
-        <>
-        123
-        </>
+        <div>
+            <Hero title={"SKORPE"}/>
+        </div>
     )
 }
 

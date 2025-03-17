@@ -16,7 +16,7 @@ const Navigation = () => {
 
   return (
     <div className={styles.navigation}>
-      <div className={styles.burgerMenu}>
+      <div className={`${styles.burgerMenu} ${activeBM ? styles.active : ''}`}>
         {!activeBM ? (
           <RxHamburgerMenu onClick={navMenu} />
         ) : (

@@ -60,10 +60,10 @@ const BoDishList = ({ dishes, deleteDish }) => {
                 <td>{price.normal} / {price.family}</td>
                 <td>{category}</td>
                 <td>
-  {ingredients.map((ingredient, index) => (
-    <div key={index}>{ingredient}</div>
-  ))}
-</td>
+                  {ingredients.map((ingredient, index) => (
+                    <div key={index}>{ingredient}</div>
+                  ))}
+                </td>
                 <td className={"table-actions"}>
                   <button onClick={() => editDish(_id)}>REDIGÈR</button>{" "}
                   {/* Clicking the button, runs the editDish function above. */}
