@@ -1,0 +1,37 @@
+.header {
+  background-color: var(--greyBackground-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+  height: 100px;
+  padding: 0 20px;
+}
+
+.rightSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.checkoutIcon {
+  font-size: 250%;
+  color: var(--green-color);
+}
+
+.cartContainer{
+  position: relative;
+}
+
+.cartQuantity{
+  background-color: var(--green-color);
+  color: #fff;
+  border-radius: 50px;
+  list-style: none;
+  position: absolute;
+  top: -18px; /* Adjust this value to move it higher */
+  right: 10px;
+  font-size: 1rem;
+  padding: 5px;
+}

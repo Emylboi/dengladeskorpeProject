@@ -1,33 +1,98 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRoutes } from "react-router-dom";
+import useAuth from "./hooks/useAuth";
+import HomePage from "./pages/client/home/HomePage";
+import EmployeesPage from "./pages/client/employees/EmployeesPage";
+import ContactPage from "./pages/client/contact/ContactPage";
+import Login from "./components/commonComponents/Header/Login/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import BackofficePage from "./pages/backoffice/BackofficePage";
+import BackofficeEmployeesPage from "./pages/backoffice/backofficePages/BackofficeEmployeesPage";
+import BoEmployeesForm from "./components/backoffice/Employees/outlet/BoEmployeesForm";
+import Header from "./components/commonComponents/Header/Header";
+import BasketPage from "./pages/client/basket/BasketPage";
+import BoDishesForm from "./components/backoffice/Dishes/outlet/BoDishForm";
+import BackofficeDishesPage from "./pages/backoffice/backofficePages/BackofficeDishesPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { signedIn, user } = useAuth();
+
+  const routes = useRoutes([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    /* {
+      path: "/product",
+      element: <ProductDetails />,
+    }, */
+    {
+      path: "/basket",
+      element: <BasketPage />,
+    },
+    {
+      path: "/employees",
+      element: <EmployeesPage />,
+    },
+    {
+      path: "/contact",
+      element: <ContactPage />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "*",
+      element: <div>NOT 404 FOUND</div>,
+    },
+    {
+      path: "/backoffice",
+      element: (
+        //You're only able to navigate to backoffice, if you're signed in and your user role is "admin".
+        <ProtectedRoute isAllowed={signedIn} role={user?.role}>
+          <BackofficePage />
+        </ProtectedRoute>
+      ),
+      children: [
+      {
+        path: "/backoffice/employees",
+        element: <BackofficeEmployeesPage />,
+        children: [
+          {
+            path: "/backoffice/employees/add",
+            element: <BoEmployeesForm />,
+          },
+          {
+            path: "/backoffice/employees/edit/:id",
+            element: <BoEmployeesForm />,
+          },
+        ],
+      },
+      {
+        path: "/backoffice/dishes",
+        element: <BackofficeDishesPage />,
+        children: [
+          {
+            path: "/backoffice/dishes/add",
+            element: <BoDishesForm />,
+          },
+          {
+            path: "/backoffice/dishes/edit/:id",
+            element: <BoDishesForm />,
+          },
+        ],
+      },
+  ]}
+    
+  ])
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Header />
+        <div className="globale-page-wrapper">{routes}</div>
+        {/* <Footer /> */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
