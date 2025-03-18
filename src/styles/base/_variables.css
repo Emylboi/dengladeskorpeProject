@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Kurale&display=swap');
+
 :root {
 
     --font-just-another-hand: "Just Another Hand", cursive;
@@ -8,7 +10,8 @@
 
 
     /* Background colors */
-    
+    --grey-color : #4a4a4a;
+    --lightPink-color : #f6f0ee;
 
 
     /* Text colors */

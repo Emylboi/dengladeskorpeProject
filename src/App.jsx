@@ -12,6 +12,8 @@ import Header from "./components/commonComponents/Header/Header";
 import BasketPage from "./pages/client/basket/BasketPage";
 import BoDishesForm from "./components/backoffice/Dishes/outlet/BoDishForm";
 import BackofficeDishesPage from "./pages/backoffice/backofficePages/BackofficeDishesPage";
+import DetailsPage from "./pages/client/details/DetailsPage";
+import Footer from "./components/commonComponents/Footer/Footer";
 
 function App() {
   const { signedIn, user } = useAuth();
@@ -21,10 +23,10 @@ function App() {
       path: "/",
       element: <HomePage />,
     },
-    /* {
-      path: "/product",
-      element: <ProductDetails />,
-    }, */
+    {
+      path: "/dish/:id",
+      element: <DetailsPage />,
+    },
     {
       path: "/basket",
       element: <BasketPage />,
@@ -91,7 +93,7 @@ function App() {
       <div>
         <Header />
         <div className="globale-page-wrapper">{routes}</div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   )

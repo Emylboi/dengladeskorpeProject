@@ -1,26 +1,22 @@
 .burgerMenu {
   color: var(--whiteFont-color);
-  font-size: 250%;
-  z-index: 1001;  /* Ensure the hamburger icon is above everything else */
+  font-size: 300%;
+  z-index: 1001;
   cursor: pointer;
-  position: relative; /* Make sure it's positioned to respect z-index */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.burgerMenu.active {
-  color: black;  /* Set to black when active */
-}
-
 .nav {
-  position: fixed;  /* Fixed position for the menu */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  display: none;  /* Initially hidden */
-  z-index: 1000;   /* Lower than the hamburger icon */
+  display: none; 
+  z-index: 1000; 
 }
 
 .show {
@@ -30,7 +26,7 @@
   flex-flow: column wrap;
   text-align: center;
   gap: 2rem;
-  background-color: var(--whiteFont-color);
+  background-color: var(--grey-color);
   color: var(--blackFont-color);
   z-index: 1000;  /* Ensure the menu is above the background but below the burger */
 }
@@ -46,10 +42,10 @@
 .nav a, .nav button {
   width: 100%;
   font-size: 3rem;
-  color: var(--blackFont-color);
+  color: var(--whiteFont-color);
   text-decoration: none;
   border: none;
-  background-color: #fff;
+  font-weight: 100;
 }
 
 .nav a:hover {

@@ -49,7 +49,7 @@ const Navigation = () => {
         </NavLink>
 
         <NavLink
-          to="/cart"
+          to="/basket"
           className={({ isActive }) => (isActive ? styles.active : null)}
           onClick={() => setActiveBM(false)}
         >

@@ -1,0 +1,15 @@
+.categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0;
+}
