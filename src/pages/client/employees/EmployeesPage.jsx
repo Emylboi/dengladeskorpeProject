@@ -5,12 +5,12 @@ import Employees from "../../../components/pageComponents/EmployeesPageComps/Emp
 
 const EmployeesPage = () => {
     return(
-        <div>
+        <section>
             <Hero title={"SKORPE"}/>
             <TitleComp title={"Personalet hos Den Glade Skorpe"}/>
             <TextComp text={"Hos Den Glade Skorpe har vi et dedikeret og venligt personale, der altid går den ekstra mil for at sikre, at kunderne får den bedste oplevelse. Teamet består af erfarne pizzabagere, der med passion tilbereder lækre pizzaer med friske råvarer."}/>
             <Employees/>
-        </div>
+        </section>
     )
 }
 

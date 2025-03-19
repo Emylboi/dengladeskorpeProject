@@ -1,8 +1,13 @@
+import Hero from "../../../components/commonComponents/Hero/Hero";
+import TitleComp from "../../../components/commonComponents/TitleComp/TitleComp";
+import Basket from "../../../components/pageComponents/BasketPageComps/Basket/Basket";
+
 const BasketPage = () => {
     return(
-        <>
-        Basket
-        </>
+        <section>
+            
+            <Basket/>
+        </section>
     )
 }
 
