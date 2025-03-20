@@ -6,23 +6,29 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Log Ind</h1>
-      <form onSubmit={signIn} className={styles.form}>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
+      <div className={styles.loginBackground}>
+        <h1>Log Ind</h1>
+        <form onSubmit={signIn} className={styles.form}>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <input
+            className={styles.input}
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="Email"
+          />
+          <input
+            className={styles.input}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <p className={styles.createAccount}>Ikke medlem? Opret en bruger. </p>
+          <button className={styles.login} type="submit">Log ind</button>
 
-        <button className={styles.login} type="submit">Log ind</button>
-      </form>
+        </form>
+
+      </div>
     </div>
   );
 };

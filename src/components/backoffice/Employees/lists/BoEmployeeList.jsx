@@ -44,22 +44,22 @@ const BoEmployeeList = ({ employees, deleteEmployee }) => {
             <th>position</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.backofficeList}>
           {employees.map((employee) => {
             let { _id, name, position, image } = employee;
 
             // Lists the information of each employee in the backoffice section, based on id's
             return (
-              <tr key={_id}>
+              <tr key={_id} className={styles.item}>
                 <td>
                   <img src={image}></img>
                 </td>
                 <td>{name}</td>
                 <td>{position}</td>
-                <td className={"table-actions"}>
-                  <button onClick={() => editEmployee(_id)}>REDIGÈR</button>{" "}
+                <td className={styles.actions}>
+                  <button className={styles.action} onClick={() => editEmployee(_id)}>REDIGÈR</button>{" "}
                   {/* Clicking the button, runs the editEmployee function above. */}
-                  <button onClick={() => handleDelete(_id, name)}>SLET</button>{" "}
+                  <button className={styles.action} onClick={() => handleDelete(_id, name)}>SLET</button>{" "}
                   {/* Clicking the button, runs the deleteEmployee function that we get as a prop from BackofficeEmployeesPage. */}
                 </td>
               </tr>

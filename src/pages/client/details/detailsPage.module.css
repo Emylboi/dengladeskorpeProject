@@ -76,3 +76,25 @@
     font-size: 2.5rem;
     border-radius: 50px;
 }
+
+.successfullyAdded{
+    font-size: 3rem;
+    text-align: center;
+    padding: 0 0 3vh 0;
+}
+
+@media(min-width: 1024px){
+    .dishImage{
+        width: 400px;
+    }
+
+    .dishSize{
+        width: 20%;
+        border-radius: 10px;
+        padding-left: 25px;
+    }
+
+    .dishToCart{
+        width: 30%;
+    }
+  }

@@ -92,3 +92,22 @@
     font-size: 2.5rem;
     border-radius: 50px;
 }
+
+@media(min-width: 1024px){
+    .cartItem{
+        width: 30%;
+    }
+
+    .comment{
+        width: 40%;
+    }
+
+    .commentInput{
+        width: 100%;
+    }
+
+    .sendOrderButton{
+        width: 40%;
+        border-radius: 0;
+    }
+  }

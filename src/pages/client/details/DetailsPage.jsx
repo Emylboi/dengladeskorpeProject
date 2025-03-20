@@ -7,8 +7,9 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 
 const DetailsPage = () => {
     const { state: dish } = useLocation();
-    const [size, setSize] = useState("normal");
-    const [cart, setCart] = useLocalStorage("cart", [])
+    const [size, setSize] = useState("normal"); //Contains the size of the dish. Normal as default, as every dish has a normal size
+    const [cart, setCart] = useLocalStorage("cart", []) //Contains the dishes that the user has added to their cart.
+    const [addedToCart, setAddedToCart] = useState(false); //Boolean that decides whether a dish was added to cart. Used for a user friendly message, letting them know it was added.
 
     if (!dish) {
         return <div>Error: No data found for this dish.</div>;
@@ -19,24 +20,41 @@ const DetailsPage = () => {
     
     const addToCart = () => {
         setCart((prevCart) => {
-            const existingItem = prevCart.find(item => item.id === dish.id && item.size === size);
-            if (existingItem) {
-                return prevCart.map(item =>
-                    item.id === dish.id && item.size === size
-                        ? { ...item, quantity: item.quantity + 1 }
-                        : item
-                );
+            // Check if the item with the same ID and size already exists in the cart
+            const existingItemIndex = prevCart.findIndex(
+                (item) => item._id === dish._id && item.size === size
+            );
+    
+            if (existingItemIndex !== -1) {
+                // If the item with the same ID and size already exists, update its quantity
+                const updatedCart = [...prevCart];
+                updatedCart[existingItemIndex] = {
+                    ...updatedCart[existingItemIndex],
+                    quantity: updatedCart[existingItemIndex].quantity + 1, // Increment quantity
+                };
+                return updatedCart;
             } else {
+                // If the item doesn't exist, add it to the cart as a new entry
                 return [...prevCart, { ...dish, size, quantity: 1 }];
             }
         });
+    
+        setAddedToCart(true);
+    
+        setTimeout(() => {
+            setAddedToCart(false);
+        }, 3000);
     };
+    
 
     return(
         <section>
             <Hero title={dish.title}/>
             <div>
-                <img src={dish.image} className={styles.dishImage}/>
+                <div className={styles.center}>
+                    <img src={dish.image} className={styles.dishImage}/>
+
+                </div>
                 <div className={styles.dishInfo}>
                     <p className={styles.dishTitle}>{dish.title}</p>
                     {/* Puts the ingredients on their own line by mapping a <p> */}
@@ -45,6 +63,7 @@ const DetailsPage = () => {
                      ))}
             </div>
                 
+                {/* If a dish has multiple sizes, it displays a select where you can choose a size of said dish. Otherwise it's not displayed at all. */}
                 {hasMultipleSizes && (
                     <>
                     <TitleComp title={"Vælg størrelse"} />
@@ -65,6 +84,10 @@ const DetailsPage = () => {
                             Tilføj {dish.title} til kurven
                         </button>
                      </div>
+
+                     {addedToCart && (
+                        <p className={styles.successfullyAdded}> {dish.title} er blevet tilføjet til kurven!</p>
+                     )}
             </div>
         </section>
     )

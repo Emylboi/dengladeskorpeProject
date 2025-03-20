@@ -40,3 +40,11 @@
         -2px 0px 0 black, 
         0px -2px 0 black;
 }
+
+@media(min-width: 1024px){
+    .categoryPreview:hover{
+        cursor: pointer;
+    }
+
+   
+  }

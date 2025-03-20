@@ -14,9 +14,13 @@ import BoDishesForm from "./components/backoffice/Dishes/outlet/BoDishForm";
 import BackofficeDishesPage from "./pages/backoffice/backofficePages/BackofficeDishesPage";
 import DetailsPage from "./pages/client/details/DetailsPage";
 import Footer from "./components/commonComponents/Footer/Footer";
+import BackofficeMessagesPage from "./pages/backoffice/backofficePages/BackofficeMessagesPage";
 
 function App() {
   const { signedIn, user } = useAuth();
+
+  //Used to check whether we're on backoffice and hiding the client navigation if we are.
+  const isBackoffice = location.pathname.startsWith("/backoffice")
 
   const routes = useRoutes([
     {
@@ -84,6 +88,10 @@ function App() {
           },
         ],
       },
+      {
+        path: "/backoffice/messages",
+        element: <BackofficeMessagesPage />,
+      },
   ]}
     
   ])
@@ -91,9 +99,10 @@ function App() {
   return (
     <>
       <div>
-        <Header />
+        {!isBackoffice && <Header />}
         <div className="globale-page-wrapper">{routes}</div>
-        <Footer />
+        {!isBackoffice && <Footer />}
+        
       </div>
     </>
   )

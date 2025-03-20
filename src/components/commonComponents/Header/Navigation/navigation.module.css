@@ -20,7 +20,7 @@
 }
 
 .show {
-  display: flex;  /* Show the menu when active */
+  display: flex; 
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
@@ -28,19 +28,25 @@
   gap: 2rem;
   background-color: var(--grey-color);
   color: var(--blackFont-color);
-  z-index: 1000;  /* Ensure the menu is above the background but below the burger */
+  z-index: 1000; 
 }
 
 .logout {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
+  background-color: var(--grey-color);
   width: 100%;
   padding: 0;
+
+  &:hover{
+    background-color: var(--grey-color);
+    color: var(--blackFont-color);
+  }
 }
 
 .nav a, .nav button {
-  width: 100%;
+  width: 50%;
   font-size: 3rem;
   color: var(--whiteFont-color);
   text-decoration: none;
@@ -49,7 +55,7 @@
 }
 
 .nav a:hover {
-  color: #00000059;
+  color: var(--blackFont-color);
 }
 
 .active {

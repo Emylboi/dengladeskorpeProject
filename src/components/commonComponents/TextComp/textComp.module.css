@@ -3,3 +3,9 @@
     text-align: center;
     padding: 2vh 25px;
 }
+
+@media(min-width: 1024px){
+    .text{
+        margin: 0 150px;
+    }
+  }

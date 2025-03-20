@@ -12,7 +12,7 @@ const Basket = () => {
 
     /* Removes the dish from the cart, taking into account for both the id and size of it. */
     const removeFromCart = (id, size) => {
-        setCart(cart.filter(item => !(item.id === id && item.size === size)));
+        setCart(cart.filter(item => !(item._id === id && item.size === size)));
     };
 
     /* Calculates the totalprice of every dish in the cart, taking into account for the prices, sizes and quantity chosen */
@@ -112,7 +112,7 @@ const Basket = () => {
                                     <h2 className={styles.text}>Pris: </h2>
                                     <h2 className={styles.textItem}>{dish.price[dish.size] * dish.quantity},-</h2>
                                 </div>
-                                <button className={styles.removeButton} onClick={() => removeFromCart(dish.id, dish.size)}>
+                                <button className={styles.removeButton} onClick={() => removeFromCart(dish._id, dish.size)}>
                                         Fjern
                                 </button>    
                             </div>

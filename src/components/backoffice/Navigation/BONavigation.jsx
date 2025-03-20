@@ -28,6 +28,12 @@ const BONavigation = () => {
           >
             <span className={styles.title}>Dishes</span>
           </NavLink>
+          <NavLink
+            to="/backoffice/messages"
+            className={({ isActive }) => (isActive ? styles.active : null)}
+          >
+            <span className={styles.title}>Messages</span>
+          </NavLink>
         </div>
         
       </div>
