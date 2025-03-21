@@ -1,12 +1,51 @@
-# React + Vite
+# Den Glade Skorpe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```
+By: Emil Dahl Hansen
+```
 
-Currently, two official plugins are available:
+Follow these steps..
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Install modules
 
-## Expanding the ESLint configuration
+Open a new terminal and type the following:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+npm install
+```
+
+This should install all the dependencies required.
+
+## Make sure you have the server
+
+If no server, alot of data will not be loaded or accessible..
+
+## Run the client
+
+Open terminal and type the following:
+
+```
+npm run dev
+```
+
+or navigate to the NPM SCRIPTS and click "dev vite"...
+
+The client should then start up
+
+Navigate to the following URL of the client
+
+```
+localhost:5173
+```
+
+Use the following logins (requires server):
+
+```
+admin@mediacollege.dk
+admin
+
+or
+
+guest@mediacollege.dk
+guest
+```
